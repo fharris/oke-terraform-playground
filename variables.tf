@@ -195,7 +195,7 @@ variable "autoscaler_node_pool_count" {
 }
 
 variable "bk_autoscaler_node_pool_count" {
-  default = 0
+  default = 1
 }
 
 variable "autoscaler_min_number_of_nodes" {
