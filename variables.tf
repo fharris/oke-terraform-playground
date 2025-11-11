@@ -23,8 +23,7 @@ variable "use_existing_nsg" {
 }
 
 variable "vcn_cidr" {
-  //default = "10.0.0.0/16"
-  default = "10.74.0.0/16"
+  default = "10.0.0.0/16"
 }
 
 variable "vcn_id" {
@@ -36,9 +35,7 @@ variable "nodepool_subnet_id" {
 }
 
 variable "nodepool_subnet_cidr" {
-  //default = "10.0.1.0/24" 
-  //default = "10.74.0.0/21"
-  default = "10.74.72.0/21"
+  default = "10.0.1.0/24"
 }
 
 variable "lb_subnet_id" {
@@ -46,9 +43,7 @@ variable "lb_subnet_id" {
 }
 
 variable "lb_subnet_cidr" {
-  //default = "10.0.2.0/24"
-  //default = "10.74.2.0/24"
-  default = "10.74.65.0/24"
+  default = "10.0.2.0/24"
 }
 
 variable "api_endpoint_subnet_id" {
@@ -56,9 +51,7 @@ variable "api_endpoint_subnet_id" {
 }
 
 variable "api_endpoint_subnet_cidr" {
-  //default = "10.0.3.0/24"
-  //default = "10.74.3.0/29"
-  default = "10.74.64.0/29"
+  default = "10.0.0.0/30"
 }
 
 variable "api_endpoint_nsg_ids" {
@@ -74,7 +67,7 @@ variable "pods_nsg_ids" {
 }
 
 variable "oke_cluster_name" {
-  default = "TFOKEAutoScalerCluster"
+  default = "OKE-tf-Example1"
 }
 
 variable "vcn_native" {
@@ -82,11 +75,11 @@ variable "vcn_native" {
 }
 
 variable "is_api_endpoint_subnet_public" {
-  default = false
+  default = true
 }
 
 variable "is_lb_subnet_public" {
-  default = false
+  default = true
 }
 
 variable "is_nodepool_subnet_public" {
@@ -94,7 +87,7 @@ variable "is_nodepool_subnet_public" {
 }
 
 variable "k8s_version" {
-  default = "v1.31.1"
+  default = "v1.33.1"
 }
 
 variable "pool_name" {
@@ -128,6 +121,7 @@ variable "node_memory" {
   default = 16
 }
 
+//Cluster CNI - if true will use OCI VCN IP Native, if not will use Flannel CNI
 variable "oci_vcn_ip_native" {
   default = false
 }
