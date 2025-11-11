@@ -1,6 +1,6 @@
 module "fk-oke" {
   providers                             = { oci = oci.targetregion }
-  source                                = "github.com/fharris/oke-autoscaler"
+  source                                = "github.com/fharris/oke-terraform-playground"
   tenancy_ocid                          = var.tenancy_ocid
   region                                = var.region 
   compartment_ocid                      = var.compartment_ocid
