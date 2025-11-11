@@ -1,6 +1,6 @@
 module "fk-oke" {
   providers                             = { oci = oci.targetregion }
-  source                                = "github.com/fharris/oke-terraform-playground"
+  source                                = "github.com/fharris/oke-autoscaler"
   tenancy_ocid                          = var.tenancy_ocid
   region                                = var.region 
   compartment_ocid                      = var.compartment_ocid
@@ -9,11 +9,11 @@ module "fk-oke" {
   node_pool_count                       = 1
   node_count                            = var.node_pool_size
   node_linux_version                    = var.node_linux_version
-  oci_vcn_ip_native                     = false #false = Flannel CNI, true = OCI VCN IP Native CNI
-  use_existing_vcn                      = false # Set to true to use existing VCN and subnets
-  is_api_endpoint_subnet_public         = true 
-  is_lb_subnet_public                   = true 
-  is_nodepool_subnet_public             = false 
+  oci_vcn_ip_native                     = false
+  use_existing_vcn                      = false
+  is_api_endpoint_subnet_public         = false 
+  is_lb_subnet_public                   = false 
+  is_nodepool_subnet_public             = true 
   autoscaler_enabled                    = var.enable_autoscaler_addon # Enabling Autoscaler as OKE Add-On
   autoscaler_authtype_workload          = var.autoscaler_authtype_workload # Decide what type of Autoscaler AuthType (Workload vs Instance Principal)
   autoscaler_min_number_of_nodes        = var.min_number_of_nodes # Autoscaler minimum number of nodes

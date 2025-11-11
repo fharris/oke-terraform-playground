@@ -18,7 +18,6 @@ resource "oci_containerengine_cluster" "fk_oke_cluster" {
     }
   }
 
-  //Cluster CNI - if true will use OCI VCN IP Native, if not will use Flannel CNI
   dynamic "cluster_pod_network_options" {
       for_each = var.oci_vcn_ip_native == true ? [1] : []
       content {
